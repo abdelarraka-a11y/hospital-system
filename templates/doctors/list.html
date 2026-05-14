@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3>Doctors</h3>
+
+<form method="GET" action="/doctors" class="mb-3">
+
+    <input class="form-control" name="search" placeholder="Search doctor">
+
+</form>
+
+<a class="btn btn-primary mb-3" href="/doctors/add">Add Doctor</a>
+
+{% for d in doctors %}
+
+<div class="card p-2 mb-2">
+
+    <b>{{ d.name }}</b> |
+    {{ d.specialty }} |
+    {{ d.phone }}
+
+    {% if session.role == "admin" %}
+        <a class="btn btn-sm btn-danger" href="/doctors/delete/{{ d.id }}">Delete</a>
+    {% endif %}
+
+</div>
+
+{% endfor %}
+
+{% endblock %}

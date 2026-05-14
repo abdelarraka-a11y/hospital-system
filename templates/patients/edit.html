@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Edit Patient</h2>
+
+<form method="POST">
+
+    <input name="name" value="{{ patient.name }}"><br><br>
+    <input name="age" value="{{ patient.age }}"><br><br>
+    <input name="gender" value="{{ patient.gender }}"><br><br>
+    <input name="phone" value="{{ patient.phone }}"><br><br>
+
+    <button type="submit">Update</button>
+
+</form>
+
+{% endblock %}

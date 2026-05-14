@@ -1,0 +1,16 @@
+{% for b in bills %}
+
+<div class="card p-2 mb-2">
+
+    Patient: {{ b.patient_name }} |
+    Amount: {{ b.amount }} |
+    Status: {{ b.status }}
+
+    <a class="btn btn-sm btn-success"
+       href="/billing/invoice/{{ b.id }}">
+       Download PDF
+    </a>
+
+</div>
+
+{% endfor %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Add Bill</h2>
+
+<form method="POST">
+
+    <input name="patient_name" placeholder="Patient Name"><br><br>
+    <input name="amount" placeholder="Amount"><br><br>
+    <input name="status" placeholder="Status (Paid/Pending)"><br><br>
+
+    <button type="submit">Save</button>
+
+</form>
+
+{% endblock %}

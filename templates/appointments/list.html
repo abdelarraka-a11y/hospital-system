@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Appointments</h2>
+
+<a href="/appointments/add">Add Appointment</a>
+
+<hr>
+
+{% for a in appointments %}
+
+    <p>
+        Patient: {{ a.patient.name }} |
+        Doctor: {{ a.doctor.name }} |
+        Date: {{ a.date }} |
+        Reason: {{ a.reason }}
+
+        {% if session.role == "admin" %}
+            | <a href="/appointments/edit/{{ a.id }}">Edit</a>
+            | <a href="/appointments/delete/{{ a.id }}">Delete</a>
+        {% endif %}
+    </p>
+
+{% endfor %}
+
+{% endblock %}
