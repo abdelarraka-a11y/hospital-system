@@ -8,28 +8,28 @@
 <div class="row mb-4">
 
     <div class="col-md-3">
-        <div class="card p-3 text-center">
+        <div class="card p-3 text-center shadow-sm">
             <h5>Patients</h5>
             <h2>{{ stats.patients }}</h2>
         </div>
     </div>
 
     <div class="col-md-3">
-        <div class="card p-3 text-center">
+        <div class="card p-3 text-center shadow-sm">
             <h5>Doctors</h5>
             <h2>{{ stats.doctors }}</h2>
         </div>
     </div>
 
     <div class="col-md-3">
-        <div class="card p-3 text-center">
+        <div class="card p-3 text-center shadow-sm">
             <h5>Appointments</h5>
             <h2>{{ stats.appointments }}</h2>
         </div>
     </div>
 
     <div class="col-md-3">
-        <div class="card p-3 text-center">
+        <div class="card p-3 text-center shadow-sm">
             <h5>Billing</h5>
             <h2>{{ stats.billings }}</h2>
         </div>
@@ -38,9 +38,9 @@
 </div>
 
 <!-- CHART -->
-<div class="card p-4">
+<div class="card p-4 shadow-sm">
 
-    <h4>System Overview</h4>
+    <h4 class="mb-3">System Overview</h4>
 
     <canvas id="hospitalChart"></canvas>
 
@@ -50,7 +50,6 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-
 const labels = JSON.parse('{{ chart_data.labels | tojson | safe }}');
 const values = JSON.parse('{{ chart_data.values | tojson | safe }}');
 
@@ -61,12 +60,18 @@ new Chart(ctx, {
     data: {
         labels: labels,
         datasets: [{
-            label: 'Hospital Data',
+            label: 'Hospital Statistics',
             data: values
         }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
     }
 });
-
 </script>
 
 {% endblock %}
